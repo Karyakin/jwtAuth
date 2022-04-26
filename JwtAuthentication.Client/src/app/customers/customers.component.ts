@@ -13,7 +13,7 @@ export class CustomersComponent implements OnInit  {
 
   ngOnInit() {
     //this.http.get("https://localhost:5001/WeatherForecast", {
-    this.http.get("https://localhost:5001/api/WeatherForecast", {
+    this.http.get("https://localhost:5001/api/Customers", {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })
