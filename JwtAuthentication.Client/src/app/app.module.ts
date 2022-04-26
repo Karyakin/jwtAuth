@@ -1,4 +1,3 @@
-import { AuthGuard } from './guards/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CustomersComponent } from './customers/customers.component';
 import { AppComponent } from './app.component';
+import {AuthGuardService} from "./guards/auth-guard.service";
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -29,18 +29,18 @@ export function tokenGetter() {
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'customers', component: CustomersComponent },
-      { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] }
+     // { path: 'customers', component: CustomersComponent },
+      { path: 'customers', component: CustomersComponent, canActivate: [AuthGuardService] }
     ]),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["localhost:5000"],
+        allowedDomains: ["localhost:5001"],
         disallowedRoutes: []
       }
     })
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

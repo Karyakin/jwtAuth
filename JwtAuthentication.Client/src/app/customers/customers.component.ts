@@ -12,7 +12,8 @@ export class CustomersComponent implements OnInit  {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get("https://localhost:5001/WeatherForecast", {
+    //this.http.get("https://localhost:5001/WeatherForecast", {
+    this.http.get("https://localhost:5001/api/WeatherForecast", {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })

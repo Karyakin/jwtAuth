@@ -3,7 +3,7 @@ import {CanActivate, Router} from "@angular/router";
 import {JwtHelperService} from "@auth0/angular-jwt";
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuardService implements CanActivate {
   constructor(private jwtHelper: JwtHelperService, private router: Router) {
   }
   canActivate() {
